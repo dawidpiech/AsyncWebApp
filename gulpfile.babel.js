@@ -20,6 +20,7 @@ gulp.task('default', ['build'])
 gulp.task('js', () => {
     gulp.src('./app/js/*.js')
         .pipe(sourcemaps.init())
+        .pipe(concat('main.min.js'))
         .pipe(uglify().on('error', console.log))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/js'))
